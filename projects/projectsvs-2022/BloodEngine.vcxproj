@@ -119,14 +119,15 @@
       <PreprocessorDefinitions>_DEBUG;BLOODENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\libs\windows\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libs\windows\sdl\include;..\..\libs\windows\thread-pool-2.0.0</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>SDL2main.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\libs\windows\SDL\build\x64\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\libs\windows\sdl\build\x64\Debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -137,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;BLOODENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\libs\windows\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libs\windows\sdl\include;..\..\libs\windows\thread-pool-2.0.0</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -147,15 +148,23 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;winmm.lib;imm32.lib;version.lib;setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\libs\windows\SDL\build\x64\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\libs\windows\sdl\build\x64\Release</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\headers\macros.h" />
     <ClInclude Include="..\..\headers\Scene.h" />
+    <ClInclude Include="..\..\headers\Task.h" />
+    <ClInclude Include="..\..\headers\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\Main.cpp" />
     <ClCompile Include="..\..\source\Scene.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="..\..\source\Task.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\docs\LICENSE" />
+    <None Include="..\..\docs\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
