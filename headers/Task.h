@@ -6,11 +6,19 @@
 #include <functional>
 namespace blood_engine {
 
-
+	template <typename T>
 	class Task {
 
 	public:
-		std::function<int> run;
+
+		enum Task_Status {
+			WAITING,
+			RUNNING,
+			FINISHED
+		};
+
+		Task_Status status;
+		std::function<T> run;
 
 
 	};
