@@ -164,12 +164,14 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\headers\Kernel.h" />
     <ClInclude Include="..\..\headers\macros.h" />
     <ClInclude Include="..\..\headers\Scene.h" />
     <ClInclude Include="..\..\headers\Task.h" />
     <ClInclude Include="..\..\headers\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\Kernel.cpp" />
     <ClCompile Include="..\..\source\Scene.cpp" />
     <ClCompile Include="..\..\source\Task.cpp" />
   </ItemGroup>
