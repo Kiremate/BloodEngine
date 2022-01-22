@@ -1,12 +1,12 @@
-#pragma once
 #ifndef TASK_H
 #define TASK_H
 
 #include "thread_pool.hpp"
 #include <functional>
+
 namespace blood_engine {
 
-	template <typename T>
+	//template <typename SIGNATURE_FUNC>
 	class Task {
 
 	public:
@@ -17,8 +17,12 @@ namespace blood_engine {
 			FINISHED
 		};
 
+		Task() {
+
+		}
+
 		Task_Status status;
-		std::function<T> run;
+		std::function<void()> func;
 
 
 	};
