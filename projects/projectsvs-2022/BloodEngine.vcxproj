@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -164,6 +164,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\headers\declarations.h" />
+    <ClInclude Include="..\..\headers\Kernel.h" />
     <ClInclude Include="..\..\headers\macros.h" />
     <ClInclude Include="..\..\headers\Scene.h" />
     <ClInclude Include="..\..\headers\System.h" />
@@ -171,6 +173,7 @@
     <ClInclude Include="..\..\headers\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\Kernel.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
     <ClCompile Include="..\..\source\Scene.cpp" />
     <ClCompile Include="..\..\source\System.cpp" />

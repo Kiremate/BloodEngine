@@ -1,0 +1,16 @@
+#pragma once
+
+
+
+///////////////////////////////////////// THREAD POOL
+
+typedef class thread_pool thread_pool;
+
+////////////////////////////////////////////////////// SDL///////////////
+typedef struct SDL_Window SDL_Window;
+typedef void* SDL_GLContext;
+
+/////////////////////////// OPENGL Toolkit
+namespace glt {
+	class Render_Node;
+}
