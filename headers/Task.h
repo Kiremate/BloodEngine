@@ -15,15 +15,22 @@ namespace blood_engine {
 			RUNNING,
 			FINISHED
 		};
+		enum Task_Priority {
+			HIGH,
+			MEDIUM,
+			LOW
+		};
 
-		Task() {
+		size_t ID;
+		bool consumable;
 
-		}
+		Task() = default;
+		virtual ~Task();
+
+		std::function<void()> run;
 
 		Task_Status status;
-		std::function<void()> func;
-
-
+		Task_Priority priority;
 	};
 }
 #endif // !TASK_H

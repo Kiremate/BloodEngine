@@ -15,7 +15,6 @@ namespace blood_engine {
 
 
 	private:
-		thread_pool pool;
 
 
 

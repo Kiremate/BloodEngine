@@ -121,7 +121,7 @@
       <PreprocessorDefinitions>_DEBUG;BLOODENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\..\libs\windows\sdl2\include;..\..\libs\windows\thread-pool-2.0.0;..\..\libs\windows\opengl-toolkit\headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libs\windows\rapidjson\include;..\..\libs\windows\sdl2\include;..\..\libs\windows\thread-pool-2.0.0;..\..\libs\windows\opengl-toolkit\headers</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;BLOODENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\libs\windows\sdl2\include;..\..\libs\windows\thread-pool-2.0.0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libs\windows\rapidjson\include;..\..\libs\windows\sdl2\include;..\..\libs\windows\thread-pool-2.0.0;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -164,20 +164,35 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\headers\Component.h" />
+    <ClInclude Include="..\..\headers\Control_Component.h" />
     <ClInclude Include="..\..\headers\declarations.h" />
+    <ClInclude Include="..\..\headers\Entity.h" />
     <ClInclude Include="..\..\headers\Kernel.h" />
     <ClInclude Include="..\..\headers\macros.h" />
+    <ClInclude Include="..\..\headers\Physics_Component.h" />
+    <ClInclude Include="..\..\headers\Physics_System.h" />
+    <ClInclude Include="..\..\headers\Renderable_Component.h" />
+    <ClInclude Include="..\..\headers\Render_System.h" />
     <ClInclude Include="..\..\headers\Scene.h" />
     <ClInclude Include="..\..\headers\System.h" />
     <ClInclude Include="..\..\headers\Task.h" />
+    <ClInclude Include="..\..\headers\Transform_Component.h" />
     <ClInclude Include="..\..\headers\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\Component.cpp" />
+    <ClCompile Include="..\..\source\Control_Component.cpp" />
+    <ClCompile Include="..\..\source\Entity.cpp" />
     <ClCompile Include="..\..\source\Kernel.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
+    <ClCompile Include="..\..\source\Physics_Component.cpp" />
+    <ClCompile Include="..\..\source\Physics_System.cpp" />
+    <ClCompile Include="..\..\source\Renderable_Component.cpp" />
     <ClCompile Include="..\..\source\Scene.cpp" />
     <ClCompile Include="..\..\source\System.cpp" />
     <ClCompile Include="..\..\source\Task.cpp" />
+    <ClCompile Include="..\..\source\Transform_Component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\docs\LICENSE" />

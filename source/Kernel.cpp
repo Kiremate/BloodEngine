@@ -2,5 +2,5 @@
 
 void blood_engine::Kernel::Run()
 {
-	pool.start
+	//pool.start
 }
