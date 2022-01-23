@@ -185,10 +185,10 @@
     <ClCompile Include="..\..\source\Control_Component.cpp" />
     <ClCompile Include="..\..\source\Entity.cpp" />
     <ClCompile Include="..\..\source\Kernel.cpp" />
-    <ClCompile Include="..\..\source\main.cpp" />
     <ClCompile Include="..\..\source\Physics_Component.cpp" />
     <ClCompile Include="..\..\source\Physics_System.cpp" />
     <ClCompile Include="..\..\source\Renderable_Component.cpp" />
+    <ClCompile Include="..\..\source\Render_System.cpp" />
     <ClCompile Include="..\..\source\Scene.cpp" />
     <ClCompile Include="..\..\source\System.cpp" />
     <ClCompile Include="..\..\source\Task.cpp" />

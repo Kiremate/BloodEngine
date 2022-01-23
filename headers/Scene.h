@@ -10,10 +10,10 @@
 namespace blood_engine {
 
 	class Scene {
-
+		typedef std::uint_fast32_t ui32;
 	public:
 		Scene() {
-
+			std::cout << "Hello World" << std::endl;
 		}
 		Scene(SDL_Window& given_window) {
 		/*for (auto &task : task_list) {
@@ -26,7 +26,21 @@ namespace blood_engine {
 		// Loads the Scene with default values - returns false if couldn't create scene, returns true otherwise
 		bool LoadScene();
 	private:
+		// Main Window
 		SDL_Window* mainWindow;
+		// Opengl Context
+		SDL_GLContext gl_context;
+
+		////////////////////
+		ui32 get_WindowScene_width() const;
+		ui32 get_WindowScene_height() const;
+		/////////////////////
+		
+		void activate_vsync();
+		void deactivate_vsync();
+
+		void clear_WindowScene() const;
+
 		// Contains task list to check priority and otherf
 		std::vector<Task> task_list;
 		// Contains all systems
@@ -38,6 +52,8 @@ namespace blood_engine {
 		thread_pool task_pool;
 		std::future<bool> f;
 		std::vector<std::future<bool >> future_list;
+
+
 	};
 
 }
