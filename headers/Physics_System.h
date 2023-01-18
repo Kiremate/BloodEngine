@@ -10,6 +10,7 @@ namespace blood_engine {
 
 
 	public:
+		virtual SystemType GetType() const { return SystemType::PHYSICS; }
 		bool CreatePhysicsComponent();
 	private:
 

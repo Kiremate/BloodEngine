@@ -8,6 +8,12 @@
 #include <ciso646>
 #include "../headers/Render_System.h"
 
+blood_engine::Render_System::Render_System(int width, int height)
+{
+    this->width = width;
+    this->height = height;
+}
+
 bool blood_engine::Render_System::CreateRenderComponent()
 {
 	auto render_component = std::make_unique<Renderable_Component>();
@@ -20,9 +26,21 @@ bool blood_engine::Render_System::CreateRenderComponent()
 	return true;
 }
 
-void blood_engine::Render_System::Render(GLsizei width, GLsizei height)
+void blood_engine::Render_System::Render()
 {
     renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
     glViewport(0, 0, width, height);
     renderer->render();
+}
+
+void blood_engine::Render_System::Update()
+{
+	// Render the scene
+	Render();
+}
+
+void blood_engine::Render_System::SetResolution(int width, int height)
+{
+    this->width = width;
+    this->height = height;
 }

@@ -1,14 +1,13 @@
 #ifndef SCENE_H
 #define SCENE_H
 #include <vector>
-#include "Kernel.h"
 #include "Task.h"
 #include "declarations.h"
 #include "System.h"
 #include "Entity.h"
-
+#include <iostream>
+class Kernel;
 namespace blood_engine {
-
 	class Scene {
 		typedef std::uint_fast32_t ui32;
 	public:
@@ -25,14 +24,16 @@ namespace blood_engine {
 		bool LoadSceneFromJson(const char* str, size_t length);
 		// Loads the Scene with default values - returns false if couldn't create scene, returns true otherwise
 		bool LoadScene();
-		template<typename T>
+		// Update
+		template <typename T> 
 		void UpdateSystem(std::unique_ptr<T> system);
-		template<typename T>
+		// Adds a new system to the scene
+		template <typename T>
 		void AddSystem(std::unique_ptr<T> system);
-		void Render();
-		void Update();
-
-		std::vector <std::unique_ptr<System>> system_list;
+		// Removes a new system to the scene
+		template <typename T>
+		void RemoveSystem(std::unique_ptr<T> system);
+		std::vector<std::unique_ptr<System>> system_list;
 	private:
 		// Main Window
 		SDL_Window* mainWindow;
@@ -53,7 +54,7 @@ namespace blood_engine {
 		std::vector<Task> task_list;
 		// Contains all systems
 		// Kernel, executes tasks and systems
-		Kernel kernel;
+		Kernel* kernel;
 		
 		// it just contains all func references
 		/*thread_pool task_pool;
