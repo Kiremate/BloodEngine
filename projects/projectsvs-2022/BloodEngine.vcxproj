@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;BLOODENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\libs\windows\rapidjson\include;..\..\libs\windows\sdl2\include;..\..\libs\windows\thread-pool-2.0.0;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libs\windows\rapidjson\include;..\..\libs\windows\sdl2\include;..\..\libs\windows\thread-pool-2.0.0;..\..\libs\windows\opengl-toolkit\headers</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -164,6 +164,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\headers\Audio_System.h" />
     <ClInclude Include="..\..\headers\Component.h" />
     <ClInclude Include="..\..\headers\Control_Component.h" />
     <ClInclude Include="..\..\headers\declarations.h" />
@@ -181,6 +182,7 @@
     <ClInclude Include="..\..\headers\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\Audio_System.cpp" />
     <ClCompile Include="..\..\source\Component.cpp" />
     <ClCompile Include="..\..\source\Control_Component.cpp" />
     <ClCompile Include="..\..\source\Entity.cpp" />

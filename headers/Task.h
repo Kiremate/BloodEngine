@@ -5,30 +5,27 @@
 
 namespace blood_engine {
 
+	enum Task_Status {
+		WAITING,
+		RUNNING,
+		FINISHED
+	};
+	enum Task_Priority {
+		HIGH,
+		MEDIUM,
+		LOW
+	};
+	
 	//template <typename SIGNATURE_FUNC>
 	class Task {
 
 	public:
-
-		enum Task_Status {
-			WAITING,
-			RUNNING,
-			FINISHED
-		};
-		enum Task_Priority {
-			HIGH,
-			MEDIUM,
-			LOW
-		};
-
+		// Update method
+		virtual void Update() = 0;
 		size_t ID;
 		bool consumable;
-
 		Task() = default;
-		virtual ~Task();
-
-		std::function<void()> run;
-
+		virtual ~Task() = default;
 		Task_Status status;
 		Task_Priority priority;
 	};

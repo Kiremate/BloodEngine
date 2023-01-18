@@ -1,39 +1,28 @@
-#include "..\headers\Render_System.h"
+#include <vector>
+#include <memory>
+#include <string>
+#include <iostream>
 #include <Render_Node.hpp>
+#include "../headers/Renderable_Component.h"
+#include <SDL.h>
+#include <ciso646>
+#include "../headers/Render_System.h"
 
 bool blood_engine::Render_System::CreateRenderComponent()
 {
-	return false;
+	auto render_component = std::make_unique<Renderable_Component>();
+    if (render_component != nullptr) {
+        std::cerr << "Failed to create render component" << std::endl;
+        return false;
+    }
+	// Add the render component to the vector
+	render_components.push_back(std::move(render_component));
+	return true;
 }
 
-void blood_engine::Render_System::Render()
+void blood_engine::Render_System::Render(GLsizei width, GLsizei height)
 {
-	for (;;) {
-        // Se ajusta el viewport por si el tamaño de la ventana ha cambiado:
-
-       // GLsizei width = GLsizei(window->get_width());
-       // GLsizei height = GLsizei(window->get_height());
-
-        renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
-
-        glViewport(0, 0, width, height);
-
-        // Se rota el objeto:
-
-        auto cube = renderer->get("cube");
-
-        cube->rotate_around_x(0.01f);
-        cube->rotate_around_y(0.02f);
-        cube->rotate_around_z(0.03f);
-
-        // Se renderiza la escena y se intercambian los buffers de la ventana para
-        // hacer visible lo que se ha renderizado:
-
-        window->clear();
-
-        renderer->render();
-
-        window->swap_buffers();
-	}
-
+    renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
+    glViewport(0, 0, width, height);
+    renderer->render();
 }

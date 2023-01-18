@@ -11,14 +11,20 @@ namespace blood_engine {
 
 
 	public:
-
+		// Empty constructor
+		Entity();
+		// Parametrized Constructor
+		Entity(size_t ID, Entity* parent, Scene* scene);
+		// Copy Constructor
+		Entity(const Entity& other);
+		virtual ~Entity();
 
 	private:
 		size_t ID;
 		Entity* parent;
 		Scene* scene;
-		Transform_Component transform;
-		std::vector<Component> components;
+		Transform_Component* transform;
+		std::vector<std::unique_ptr<Component>> components;
 	};
 }
 #endif // !ENTITY_H

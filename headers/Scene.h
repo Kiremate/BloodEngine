@@ -25,6 +25,14 @@ namespace blood_engine {
 		bool LoadSceneFromJson(const char* str, size_t length);
 		// Loads the Scene with default values - returns false if couldn't create scene, returns true otherwise
 		bool LoadScene();
+		template<typename T>
+		void UpdateSystem(std::unique_ptr<T> system);
+		template<typename T>
+		void AddSystem(std::unique_ptr<T> system);
+		void Render();
+		void Update();
+
+		std::vector <std::unique_ptr<System>> system_list;
 	private:
 		// Main Window
 		SDL_Window* mainWindow;
@@ -46,14 +54,12 @@ namespace blood_engine {
 		// Contains all systems
 		// Kernel, executes tasks and systems
 		Kernel kernel;
-		std::vector <System> system_list;
-		std::vector <Entity> entity_list;
+		
 		// it just contains all func references
-		thread_pool task_pool;
+		/*thread_pool task_pool;
 		std::future<bool> f;
-		std::vector<std::future<bool >> future_list;
-
-
+		std::vector<std::future<bool >> future_list;*/
+		std::vector <Entity> entity_list;
 	};
 
 }

@@ -12,6 +12,7 @@ namespace blood_engine {
 	public:
 		Component CreateComponent();
 		System() = default;
+		virtual void Update() = 0;
 		virtual ~System();
 	private:
 		Scene* scene;

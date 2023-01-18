@@ -60,6 +60,9 @@
     <ClInclude Include="..\..\headers\Render_System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\headers\Audio_System.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\Scene.cpp">
@@ -96,6 +99,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\source\Render_System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Audio_System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
