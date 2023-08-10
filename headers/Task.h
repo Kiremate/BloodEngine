@@ -1,3 +1,8 @@
+/**
+ * @author Bloodmask
+ * @copyright Copyright (c) 2023, Bloodmask
+ * @license All rights reserved
+ */
 #ifndef TASK_H
 #define TASK_H
 

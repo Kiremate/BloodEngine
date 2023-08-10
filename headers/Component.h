@@ -1,3 +1,8 @@
+/**
+ * @author Bloodmask
+ * @copyright Copyright (c) 2023, Bloodmask
+ * @license All rights reserved
+ */
 #include <memory>
 #ifndef COMPONENT_H
 #define COMPONENT_H

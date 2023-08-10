@@ -14,12 +14,18 @@ blood_engine::Kernel::~Kernel()
 
 bool blood_engine::Kernel::Initialize()
 {
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+        std::cout << "Error initializing SDL: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
+    this->running = true;
     return false;
 }
 
 void blood_engine::Kernel::Run(Scene* scene)
 {
-    this->running = true;
+    
     std::vector<std::future<bool>> future_list;
 
     while (this->running) {
@@ -49,6 +55,6 @@ void blood_engine::Kernel::Run(Scene* scene)
 
 void blood_engine::Kernel::Stop()
 {
-    running = false;
+    this->running = false;
 }
 

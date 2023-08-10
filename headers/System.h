@@ -1,3 +1,8 @@
+/**
+ * @author Bloodmask
+ * @copyright Copyright (c) 2023, Bloodmask
+ * @license All rights reserved
+ */
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
@@ -7,7 +12,7 @@
 class Scene;
 
 namespace blood_engine {
-	enum SystemType{RENDER, PHYSICS, AUDIO};
+	enum SystemType{RENDER, PHYSICS, AUDIO, INPUT};
 
 	class System : Task {
 
@@ -15,8 +20,8 @@ namespace blood_engine {
 		virtual SystemType GetType() const = 0;
 		Component CreateComponent();
 		System() = default;
+		virtual ~System() = default;
 		virtual void Update() = 0;
-		virtual ~System();
 	private:
 		Scene* scene;
 		SystemType type;

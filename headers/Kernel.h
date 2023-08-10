@@ -1,11 +1,17 @@
+/**
+ * @author Bloodmask
+ * @copyright Copyright (c) 2023, Bloodmask
+ * @license All rights reserved
+ */
 #ifndef KERNEL_H
 #define KERNEL_H
 
 #include "thread_pool.hpp"
 #include <vector>
 #include "System.h"
-#include "Scene.h"
+
 namespace blood_engine {
+    class Scene;
     class Kernel {
     private:
         bool running;

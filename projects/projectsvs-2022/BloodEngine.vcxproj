@@ -169,8 +169,10 @@
     <ClInclude Include="..\..\headers\Control_Component.h" />
     <ClInclude Include="..\..\headers\declarations.h" />
     <ClInclude Include="..\..\headers\Entity.h" />
+    <ClInclude Include="..\..\headers\Input_System.h" />
     <ClInclude Include="..\..\headers\Kernel.h" />
     <ClInclude Include="..\..\headers\macros.h" />
+    <ClInclude Include="..\..\headers\Message_Dispatcher.h" />
     <ClInclude Include="..\..\headers\Physics_Component.h" />
     <ClInclude Include="..\..\headers\Physics_System.h" />
     <ClInclude Include="..\..\headers\Renderable_Component.h" />
@@ -186,7 +188,9 @@
     <ClCompile Include="..\..\source\Component.cpp" />
     <ClCompile Include="..\..\source\Control_Component.cpp" />
     <ClCompile Include="..\..\source\Entity.cpp" />
+    <ClCompile Include="..\..\source\Input_System.cpp" />
     <ClCompile Include="..\..\source\Kernel.cpp" />
+    <ClCompile Include="..\..\source\Message_Dispatcher.cpp" />
     <ClCompile Include="..\..\source\Physics_Component.cpp" />
     <ClCompile Include="..\..\source\Physics_System.cpp" />
     <ClCompile Include="..\..\source\Renderable_Component.cpp" />

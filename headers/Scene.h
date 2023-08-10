@@ -1,3 +1,8 @@
+/**
+ * @author Bloodmask
+ * @copyright Copyright (c) 2023, Bloodmask
+ * @license All rights reserved
+ */
 #ifndef SCENE_H
 #define SCENE_H
 #include <vector>
@@ -6,19 +11,15 @@
 #include "System.h"
 #include "Entity.h"
 #include <iostream>
-class Kernel;
+
 namespace blood_engine {
+	class Kernel;
 	class Scene {
 		typedef std::uint_fast32_t ui32;
 	public:
-		Scene() {
-			std::cout << "Hello World" << std::endl;
-		}
-		Scene(SDL_Window& given_window) {
-		/*for (auto &task : task_list) {
-				future_list.push_back(task_pool.submit(task.run));
-			}*/
-		}
+		Scene() = default;
+		Scene(SDL_Window* window, SDL_GLContext* gl_context);
+		~Scene() = default;
 
 		// Loads the Scene from a Json file - returns false if couldn't create scene, returns true otherwise
 		bool LoadSceneFromJson(const char* str, size_t length);
@@ -26,19 +27,22 @@ namespace blood_engine {
 		bool LoadScene();
 		// Update
 		template <typename T> 
-		void UpdateSystem(std::unique_ptr<T> system);
+		void UpdateSystem(std::shared_ptr<T> system);
 		// Adds a new system to the scene
 		template <typename T>
-		void AddSystem(std::unique_ptr<T> system);
+		void AddSystem(std::shared_ptr<T> system);
 		// Removes a new system to the scene
 		template <typename T>
-		void RemoveSystem(std::unique_ptr<T> system);
-		std::vector<std::unique_ptr<System>> system_list;
+		void RemoveSystem(std::shared_ptr<T> system);
+		std::vector<std::shared_ptr<System>> system_list;
+		void StopScene();
+		void Clear_WindowScene() const;
+		void SwapWindowBuffers() const;
 	private:
 		// Main Window
 		SDL_Window* mainWindow;
 		// Opengl Context
-		SDL_GLContext gl_context;
+		SDL_GLContext* gl_context;
 
 		////////////////////
 		ui32 get_WindowScene_width() const;
@@ -48,18 +52,12 @@ namespace blood_engine {
 		void activate_vsync();
 		void deactivate_vsync();
 
-		void clear_WindowScene() const;
-
-		// Contains task list to check priority and otherf
+		// Contains task list to check priority and other
 		std::vector<Task> task_list;
-		// Contains all systems
+		
 		// Kernel, executes tasks and systems
 		Kernel* kernel;
-		
-		// it just contains all func references
-		/*thread_pool task_pool;
-		std::future<bool> f;
-		std::vector<std::future<bool >> future_list;*/
+	
 		std::vector <Entity> entity_list;
 	};
 

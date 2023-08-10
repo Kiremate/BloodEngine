@@ -1,3 +1,8 @@
+/**
+ * @author Bloodmask
+ * @copyright Copyright (c) 2023, Bloodmask
+ * @license All rights reserved
+ */
 #ifndef CONTROL_COMPONENT
 #define CONTROL_COMPONENT
 
